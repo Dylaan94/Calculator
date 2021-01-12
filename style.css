@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.calcDisplay{
+    display: flex;
+    justify-content: center;
+}
+
+.calculatorContainer {
+    display: flex;  
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.buttons {
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.btn {
+    font-size: 25px;
+    background: coral;
+    border: none;
+}
+
+.btn:hover {
+    background: orange;
+}
