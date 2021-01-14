@@ -39,6 +39,32 @@
     border-radius: 25px;
 }
 
+.operator {
+    font-size: 20px;
+    background:lightblue;
+    border: none;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 25px;
+}
+
+.equals {
+    font-size: 20px;
+    background:lightblue;
+    border: none;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 25px;
+}
+
 .btn:hover {
     background: orange;
+}
+
+.operator:hover {
+    background: blue;
+}
+
+.equals:hover {
+    background: blue;
 }

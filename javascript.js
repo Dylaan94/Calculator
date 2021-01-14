@@ -1,8 +1,9 @@
 let a;
 let b;
-let operator;
+let operator = Array.from(document.getElementsByClassName("operator"));
 let display = document.getElementById("display");
 let button = Array.from(document.getElementsByClassName("btn"));
+let equals = Array.from(document.getElementsByClassName("equals"));
 
 // argument variables
 let firstArg;
@@ -43,8 +44,6 @@ function operate (a,b,operator){
 button.forEach(button => {
 	button.addEventListener("click", function () {
 			display.innerHTML += button.innerHTML;
-		
-		
 	})
 })
 // uses for each to change the input on the display.
@@ -59,12 +58,29 @@ button.forEach(button => {
 // Then, once the equals sign has been hit, the second string will be 
 // stored as an argument too.
 
+
+operator.forEach(operator => {
+	operator.addEventListener("click" , function () {
+		firstArgFunc(display)
+	})
+})
+
+equals.forEach(equals => {
+	equals.addEventListener("click", function() {
+		secondArgFunc(display);
+	})
+})
+
+
+
 function firstArgFunc () {
-	if (!display.innerHTML === NaN ){
-		display.innerHTML = toString.firstArg;
-		console.log(firstArg)
-	}
-
-
+	firstArg = display.innerHTML;
+	display.innerHTML = ""
+	console.log(display.innerHTML);
+	console.log("first arg is " + firstArg)
 };
 
+function secondArgFunc () {
+	secondArg = display.innerHTML;
+	console.log("second arg is " + secondArg)
+}
