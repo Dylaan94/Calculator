@@ -57,6 +57,15 @@
     border-radius: 25px;
 }
 
+.clear {
+    font-size: 20px;
+    white;
+    border: none;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 25px;
+}
+
 .btn:hover {
     background: orange;
 }
@@ -67,4 +76,8 @@
 
 .equals:hover {
     background: blue;
+}
+
+.clear:hover {
+    background: lightgrey;
 }

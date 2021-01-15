@@ -1,86 +1,135 @@
-let a;
-let b;
 let operator = Array.from(document.getElementsByClassName("operator"));
 let display = document.getElementById("display");
+let displayArr = [];
 let button = Array.from(document.getElementsByClassName("btn"));
 let equals = Array.from(document.getElementsByClassName("equals"));
+let clearDisplay = document.getElementById("clear");
+let answer;
 
 // argument variables
 let firstArg;
 let secondArg;
+let furtherArg;
 
 // calculator functions
 
-function add (a,b) {
-	return a + b;
+function add (firstArg,secondArg) {
+	firstArg = parseFloat(firstArg) // parse float to change to string to avoid concat
+	secondArg = parseFloat(secondArg)
+	return firstArg + secondArg;
 }
 
-function subtract (a,b) {
-	return a - b;
+function subtract (firstArg,secondArg) {
+	return firstArg - secondArg;
 }
 
-function multiply (a,b) {
-	return a * b;
+function multiply (firstArg,secondArg) {
+	return firstArg * secondArg;
 }
 
-function divide (a,b) {
-    return a / b;
+function divide (firstArg,secondArg) {
+    return firstArg / secondArg;
 }
 
-function operate (a,b,operator){
-	if (operator === "+") {
-		add(a,b);
-	} else if (operator === "-") {
-		subtract(a,b);
-	} else if (operator === "*"){
-		multiply(a,b);
-	} else if (operator === "/"){
-		divide(a,b);
+function operate (firstArg,secondArg,operator){
+		if (operator === "add") {
+			display.innerHTML = add(firstArg,secondArg);
+			console.log(add(firstArg,secondArg))
+			answer = display.innerHTML
+			console.log("answer is " + answer)
+			return answer
+		} else if (operator === "subtract") {
+			display.innerHTML = subtract(firstArg,secondArg);
+			console.log(subtract(firstArg,secondArg))
+			answer = display.innerHTML
+			console.log("answer is " + answer)
+			return answer
+		} else if (operator === "multiply"){
+			display.innerHTML = multiply(firstArg,secondArg);
+			console.log(multiply(firstArg,secondArg))
+			answer = display.innerHTML
+			console.log("answer is " + answer)
+			return answer
+		} else if (operator === "divide"){
+			display.innerHTML = divide(firstArg,secondArg);
+			console.log(divide(firstArg,secondArg))	
+			answer = display.innerHTML
+			console.log("answer is " + answer)
+			return answer
 	}
+	secondOperate(answer);
 }
+
+// add functionality to string operators together
 
 // functionality
 
-button.forEach(button => {
-	button.addEventListener("click", function () {
-			display.innerHTML += button.innerHTML;
+clearDisplay.addEventListener("click", function () {
+	location.reload();
+})	
+
+function useCalculator () {
+	button.forEach(button => {
+		button.addEventListener("click", function () {
+			displayArr = Array.from(display.innerHTML += button.innerHTML); // pushed display into array
+			displayArr = displayArr.filter(function(str) {
+				return  /\S/.test(str); // removed whitespace with regex
+			})
+			displayArr = parseInt(displayArr.join("")); // turned into number
+			display.innerHTML = displayArr;
+		})
 	})
-})
-// uses for each to change the input on the display.
-// now I need to concat the numbers
+	
+	operator.forEach(operator => {
+		operator.addEventListener("click" , function () {
+			operator = operator.id;
+			console.log("operator is set as " + operator);
+			firstArgFunc();
+	
+			function firstArgFunc () {
+				console.log(operator);
+				firstArg = display.innerHTML;
+				display.innerHTML = ""
+				console.log("first arg is " + firstArg)
+			};
+			
+			function secondArgFunc () {
+				secondArg = display.innerHTML;
+				console.log("second arg is " + secondArg)
+				operate(firstArg,secondArg,operator);
+			}
 
-// need to create a function that creates a string from the inputs and 
-// stores them as an argument variable
-
-// need to make it that when an operator variable is clicked, the current 
-// innerHTML becomes an argument.
-
-// Then, once the equals sign has been hit, the second string will be 
-// stored as an argument too.
-
-
-operator.forEach(operator => {
-	operator.addEventListener("click" , function () {
-		firstArgFunc(display)
+			equals.forEach(equals => {
+				equals.addEventListener("click", function() {
+					secondArgFunc(display);
+				})
+			})	
+		})
 	})
-})
-
-equals.forEach(equals => {
-	equals.addEventListener("click", function() {
-		secondArgFunc(display);
-	})
-})
-
-
-
-function firstArgFunc () {
-	firstArg = display.innerHTML;
-	display.innerHTML = ""
-	console.log(display.innerHTML);
-	console.log("first arg is " + firstArg)
-};
-
-function secondArgFunc () {
-	secondArg = display.innerHTML;
-	console.log("second arg is " + secondArg)
 }
+
+function secondOperate(answer) {
+	operator.forEach(operator => {
+		operator = operator.id;
+		console.log("new operator is set as " + operator);
+		furtherArgFunc();
+	})
+
+	function furtherArgFunc () {
+		furtherArg = display.innerHTML;
+		console.log("further arg is " + furtherArg)
+}}
+
+useCalculator();
+
+// answer is created as a variable
+// answer -> operator -> number becomes newarg
+// new arg becomes answer
+// loop back
+
+// need event listener to check if equals has been pressed
+// if equals has been pressed go to operate
+// if an operator is pressed, go to second operate.
+// second operate will take answer, and add,multply,divide,or subtract
+// 
+
