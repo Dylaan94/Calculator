@@ -1,4 +1,4 @@
-const operator = Array.from(document.getElementsByClassName("operator"));
+let operator = Array.from(document.getElementsByClassName("operator"));
 let display = document.getElementById("display");
 let displayArr = [];
 let button = Array.from(document.getElementsByClassName("btn"));
@@ -42,28 +42,28 @@ function operate (firstArg,secondArg,operator){
 			console.log(add(firstArg,secondArg))
 			answer = display.innerHTML
 			console.log("answer is " + answer)
-			setNewOperator()
+			setOperator();
 			return answer
 		} else if (operator === "subtract") {
 			display.innerHTML = subtract(firstArg,secondArg);
 			console.log(subtract(firstArg,secondArg))
 			answer = display.innerHTML
 			console.log("answer is " + answer)
-			setNewOperator()
+			setOperator();
 			return answer
 		} else if (operator === "multiply"){
 			display.innerHTML = multiply(firstArg,secondArg);
 			console.log(multiply(firstArg,secondArg))
 			answer = display.innerHTML
 			console.log("answer is " + answer)
-			setNewOperator()
+			setOperator();
 			return answer
 		} else if (operator === "divide"){
 			display.innerHTML = divide(firstArg,secondArg);
 			console.log(divide(firstArg,secondArg))	
 			answer = display.innerHTML
 			console.log("answer is " + answer)
-			setNewOperator()
+			setOperator();
 			return answer
 	}
 	
@@ -90,19 +90,21 @@ function useCalculator () {
 		})
 	})
 
-	if (newOperator === undefined) {
-		setOperator();
-	}
+setOperator();
 	
 }
 
 function setOperator () {
 		operator.forEach(operator => {
 			operator.addEventListener("click" , function () {
-				operator = operator.id;
-				console.log("operator is set as " + operator);
-				firstArgFunc();
-		
+				if (Array.isArray(operator) !== true) {
+					operator = operator.id;
+					console.log("operator is set as " + operator);
+					firstArgFunc();
+				} else if (typeof(operator) != "undefined") {
+					setNewOperator();
+				}
+				
 				function firstArgFunc () {
 					console.log(operator);
 					firstArg = display.innerHTML;
@@ -115,10 +117,33 @@ function setOperator () {
 					console.log("second arg is " + secondArg)
 					operate(firstArg,secondArg,operator);
 				}
+
+				function furtherArgFunc () {
+					furtherArg = display.innerHTML;
+					console.log("furtherArg is " + furtherArg)
+					secondArg = furtherArg
+					operate(firstArg,secondArg,operator);
+				
+				}
+
+				function setNewOperator() {
+					console.log("setNewOperator launched")
+					operator = Array.from(document.getElementsByClassName("operator"));
+					operator.forEach(operator => {
+						operator.addEventListener("click", function() {
+							display.innerHTML = "";
+							operator = operator.id;
+							console.log("new operator is set as " + operator)
+						})
+					})
+				}
 	
 				equals.forEach(equals => {
+					// if statement
 					equals.addEventListener("click", function() {
-						secondArgFunc(display);
+				
+							secondArgFunc(display);
+							setNewOperator(operator);
 					})
 				})	
 			})
@@ -128,38 +153,8 @@ function setOperator () {
 
 // this sets new operator to act between the two sets of calculations
 
-function setNewOperator() {
-	console.log("setNewOperator launched")
-	operator.forEach(operator => {
-		operator.addEventListener("click", function() {
-			display.innerHTML = "";
-			newOperator = operator.id;
-			console.log("new operator is set as " + newOperator)
-			secondOperate();
-		})
-	})
-}
-
-function secondOperate() {
-	let refreshOperator = Array.from(document.getElementsByClassName("operator"));
-	let firstArg = answer;
-	let secondArg;
-
-	console.log("secondOperateLaunched" + answer + newOperator)
-	console.log(operator + "is this now")
-	
-	operator.forEach(operator => {
-		operator.addEventListener("click", function() {
-			furtherArgOneFunc();
-			
-		})
-	})
 
 
-
-
-
-}
 
 useCalculator();
 
