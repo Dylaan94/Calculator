@@ -9,11 +9,6 @@ let answer;
 // argument variables
 let firstArg;
 let secondArg;
-let furtherArg;
-
-let furtherArgOne;
-let furtherArgTwo;
-
 let newOperator;
 
 // calculator functions
@@ -90,24 +85,25 @@ function useCalculator () {
 		})
 	})
 
-setOperator();
-	
+setOperator();	
 }
 
 function setOperator () {
+
 		operator.forEach(operator => {
-			operator.addEventListener("click" , function () {
-				if (Array.isArray(operator) !== true) {
-					operator = operator.id;
-					console.log("operator is set as " + operator);
-					firstArgFunc();
-				} else if (typeof(operator) != "undefined") {
-					setNewOperator();
-				}
-				
+			operator.onclick = function () {
+				operator = operator.id;
+				console.log("operator is set as " + operator);
+				firstArgFunc();
+			
 				function firstArgFunc () {
 					console.log(operator);
-					firstArg = display.innerHTML;
+					if (firstArg === undefined) {
+						firstArg = display.innerHTML;
+					} else {
+						firstArg = answer;
+					}		
+								
 					display.innerHTML = ""
 					console.log("first arg is " + firstArg)
 				};
@@ -118,14 +114,6 @@ function setOperator () {
 					operate(firstArg,secondArg,operator);
 				}
 
-				function furtherArgFunc () {
-					furtherArg = display.innerHTML;
-					console.log("furtherArg is " + furtherArg)
-					secondArg = furtherArg
-					operate(firstArg,secondArg,operator);
-				
-				}
-
 				function setNewOperator() {
 					console.log("setNewOperator launched")
 					operator = Array.from(document.getElementsByClassName("operator"));
@@ -134,6 +122,7 @@ function setOperator () {
 							display.innerHTML = "";
 							operator = operator.id;
 							console.log("new operator is set as " + operator)
+							secondArgFunc();
 						})
 					})
 				}
@@ -146,15 +135,14 @@ function setOperator () {
 							setNewOperator(operator);
 					})
 				})	
-			})
+			}
 		})
-	return
 }
 
 // this sets new operator to act between the two sets of calculations
 
 
-
+// clear up the repeated function calls with add event listener: use onclick instead.
 
 useCalculator();
 
