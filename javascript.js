@@ -117,16 +117,15 @@ function setOperator () {
 				function setNewOperator() {
 					console.log("setNewOperator launched")
 					operator = Array.from(document.getElementsByClassName("operator"));
-					operator.forEach(operator => {
-						operator.addEventListener("click", function() {
-							display.innerHTML = "";
-							operator = operator.id;
-							console.log("new operator is set as " + operator)
-							secondArgFunc();
-						})
-					})
+
+					operator.onclick = function () {
+						display.innerText = "";
+						operator = operator.id; 
+						console.log("new operator is set as " + operator)
+						secondArgFunc();
+					}
 				}
-	
+				
 				equals.forEach(equals => {
 					// if statement
 					equals.addEventListener("click", function() {
@@ -146,16 +145,3 @@ function setOperator () {
 
 useCalculator();
 
-// answer is created as a variable
-// answer -> operator -> number becomes newarg
-// new arg becomes answer
-// loop back
-
-// need event listener to check if equals has been pressed
-// if equals has been pressed go to operate
-// if an operator is pressed, go to second operate.
-// second operate will take answer, and add,multply,divide,or subtract
-// 
-
-// need to change event listener on operator so that it doesn't 
-// run again if answer has data
