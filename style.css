@@ -18,7 +18,7 @@ body {
 
 .calcDisplay{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background: white;
     margin-top: 10px;
@@ -30,6 +30,8 @@ body {
     max-height: 130px;
 }
 
+
+
 .calculatorContainer {
     display: flex;  
     flex-direction: column;
@@ -39,6 +41,8 @@ body {
     max-height: 500px;
     background: #00adb5;
 }
+
+
 
 .buttons {
     display: flex;
@@ -58,6 +62,18 @@ body {
     min-width: 55px;
     max-width: 55px;
     margin: 2px;
+}
+
+.backspace {
+    font-size: 20px;
+    background:#30e3ca;
+    border: none;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 0px 10px 10px 0px;
+    min-width: 55px;
+    max-width: 55px;
+    min-height: 130px;
 }
 
 .operator {
@@ -98,6 +114,11 @@ body {
 
 .btn:hover {
     background: #6639a6;
+}
+
+.backspace:hover {
+    background: #6639a6;
+
 }
 
 .operator:hover {
