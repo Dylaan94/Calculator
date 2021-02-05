@@ -31,6 +31,8 @@ function divide (firstArg,secondArg) {
     return firstArg / secondArg;
 }
 
+// operator functions
+
 function operate (firstArg,secondArg,operator){
 		if (operator === "add") {
 			display.innerHTML = add(firstArg,secondArg);
@@ -61,8 +63,6 @@ function operate (firstArg,secondArg,operator){
 			setOperator();
 			return answer
 	}
-	
-
 }
 
 // add functionality to string operators together

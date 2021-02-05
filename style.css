@@ -1,18 +1,33 @@
+body {
+    background: #222831;
+    font-family: 'Roboto';
+    font-weight: 1000;
+    color: white;
+}
+
+.header {
+    font-size: 50px;
+    padding: 20px;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: cornflowerblue;
 }
 
 .calcDisplay{
     display: flex;
     justify-content: center;
+    align-items: center;
     background: white;
     margin-top: 10px;
     margin-right: 10px;
     margin-left: 10px;
     border-radius: 20px;
+    color: black;
+    font-size: 50px;
+    max-height: 130px;
 }
 
 .calculatorContainer {
@@ -22,21 +37,27 @@
     border-radius: 25px;
     max-width: 300px;
     max-height: 500px;
-    background: coral;
+    background: #00adb5;
 }
 
 .buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+   /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+    padding: 10px;
 }
 
 .btn {
     font-size: 20px;
-    background: coral;
+    background:#30e3ca;
     border: none;
     padding-top: 25px;
     padding-bottom: 25px;
-    border-radius: 25px;
+    border-radius: 10px;
+    min-width: 55px;
+    max-width: 55px;
+    margin: 2px;
 }
 
 .operator {
@@ -45,7 +66,10 @@
     border: none;
     padding-top: 25px;
     padding-bottom: 25px;
-    border-radius: 25px;
+    border-radius: 10px;
+    min-width: 55px;
+    max-width: 55px;
+    margin: 2px;
 }
 
 .equals {
@@ -54,7 +78,10 @@
     border: none;
     padding-top: 25px;
     padding-bottom: 25px;
-    border-radius: 25px;
+    border-radius: 10px;
+    min-width: 55px;
+    max-width: 55px;
+    margin: 2px;
 }
 
 .clear {
@@ -63,11 +90,14 @@
     border: none;
     padding-top: 25px;
     padding-bottom: 25px;
-    border-radius: 25px;
+    border-radius: 10px;
+    min-width: 55px;
+    max-width: 55px;
+    margin: 2px;
 }
 
 .btn:hover {
-    background: orange;
+    background: #6639a6;
 }
 
 .operator:hover {
@@ -80,4 +110,8 @@
 
 .clear:hover {
     background: lightgrey;
+}
+
+.footnotes {
+    padding-top: 30px;
 }

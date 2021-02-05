@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href = "style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <title>Calculator Odin Project</title>
 </head>
 <body>
@@ -11,6 +13,7 @@
         <div class = "header">
             Calculator for the Odin Project
         </div>
+
         <div class = "calculatorContainer">
             <div class = "calcDisplay"> 
                 <p class = "display" id = "display"></p>
@@ -21,28 +24,42 @@
             </div>
 
             <div class = "buttons">
-                <button class = "btn" id = "1"> 1 </button>
-                <button class = "btn" id = "2"> 2 </button>
-                <button class = "btn" id = "3"> 3 </button>
-                <button class = "operator" id = "add"> + </button>
+                <div class = "calcRow1">
+                    <button class = "btn" id = "1"> 1 </button>
+                    <button class = "btn" id = "2"> 2 </button>
+                    <button class = "btn" id = "3"> 3 </button>
+                    <button class = "operator" id = "add"> + </button>
+                </div>
 
+                <div class = "calcRow2">
                 <button class = "btn" id = "4"> 4 </button>
                 <button class = "btn" id = "5"> 5 </button>
                 <button class = "btn" id = "6"> 6 </button>
                 <button class = "operator" id = "subtract"> - </button>
+                </div>
 
+                <div class = "calcRow3">
                 <button class = "btn" id = "7"> 7 </button>
                 <button class = "btn" id = "8"> 8 </button>
                 <button class = "btn" id = "9"> 9 </button>
                 <button class = "operator" id = "multiply"> x </button>
+                </div>
 
+                <div class = "calcRow4">
                 <button class = "clear" id = "clear"> clear </button>
                 <button class = "btn" id = "zero"> 0 </button>
                 <button class = "equals" id = "equals"> = </button>
                 <button class = "operator" id = "divide"> ÷ </button>
+                </div>
             </div>
 
             
+        </div>
+        <div class = "footnotes">
+            technologies used: html, css, javascript
+        </div>
+        <div class = "socials">
+            github:
         </div>
     </div>
 
