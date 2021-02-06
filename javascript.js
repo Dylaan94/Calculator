@@ -4,6 +4,7 @@ let displayArr = [];
 let button = Array.from(document.getElementsByClassName("btn"));
 let equals = Array.from(document.getElementsByClassName("equals"));
 let clearDisplay = document.getElementById("clear");
+let backspace = document.getElementById("backspace");
 let answer;
 
 // argument variables
@@ -73,6 +74,15 @@ clearDisplay.addEventListener("click", function () {
 	location.reload();
 })	
 
+backspace.addEventListener("click", function () {
+	let string = display.innerHTML;
+	string = Array.from(display.innerHTML);
+	string.pop(); // removes end of the array
+	string = string.join(""); 
+	display.innerHTML = string;
+})
+
+
 function useCalculator () {
 	button.forEach(button => {
 		button.addEventListener("click", function () {
@@ -84,6 +94,7 @@ function useCalculator () {
 			display.innerHTML = displayArr;
 		})
 	})
+	
 
 setOperator();	
 }
