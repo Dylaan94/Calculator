@@ -31,8 +31,6 @@ body {
     padding-left: 10px;
 }
 
-
-
 .calculatorContainer {
     display: flex;  
     flex-direction: column;
@@ -103,7 +101,6 @@ body {
 
 .clear {
     font-size: 20px;
-    white;
     border: none;
     padding-top: 25px;
     padding-bottom: 25px;
@@ -111,6 +108,21 @@ body {
     min-width: 55px;
     max-width: 55px;
     margin: 2px;
+}
+
+.github {
+    padding-top: 10px;
+}
+
+.github > a {
+    text-decoration: none;
+    color: white;
+    font-size: 50px;
+}
+
+.github > a:hover {
+    text-decoration: none;
+    color: #6639a6;
 }
 
 .btn:hover {
@@ -123,15 +135,15 @@ body {
 }
 
 .operator:hover {
-    background: blue;
+    background: #3490de;
 }
 
 .equals:hover {
-    background: blue;
+    background:  #3490de;
 }
 
 .clear:hover {
-    background: lightgrey;
+    background:  #3490de;
 }
 
 .footnotes {
